@@ -35,6 +35,8 @@ Restart VS Code after installation.
 3. Open the Command Palette and select **LaTeX Workshop: Build LaTeX project**. If using MiKTeX, accept any required package installations.
 4. From the same palette, select **LaTeX Workshop: View LaTeX PDF file**.
 
+In MiKTeX's package installation dialog, uncheck **Always show this dialog** before clicking **Install** to install missing packages automatically without repeated prompts.
+
 Open the Command Palette with **Ctrl + Shift + P** on Windows/Linux or **Cmd + Shift + P** on macOS.
 
 Alternatively, compile from the project root in the terminal:

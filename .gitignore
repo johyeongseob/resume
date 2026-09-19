@@ -12,6 +12,7 @@
 *.lof
 *.lot
 *.blg
+*.bbl
 *.bcf
 *.run.xml
 *.nav
