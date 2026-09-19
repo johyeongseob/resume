@@ -20,7 +20,7 @@
 \usepackage{array}                  % required for boldface tabular columns
 \usepackage{ifthen}
 
-\nofiles                            % .aux files are not needed for resumes
+% Keep auxiliary files enabled for BibTeX.
 \pagestyle{empty}                   % resumes do not need page numbers
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -45,19 +45,17 @@
 }
 
 % \printaddress is used to style an address line (given as input)
-\def \printaddress #1{
-  \begingroup
-    \def \\ {\addressSep\ }
-    \centerline{#1}
-  \endgroup
-  \par
-  \addressskip
+\def \printaddress #1{%
+  \begingroup%
+    \def \\ {\addressSep\ }%
+    #1%
+  \endgroup%
 }
 
 % \printname is used to print the name as a page header
 \def \printname {
   \begingroup
-    \centerline{\textbf{\MakeUppercase{\namesize\@name}}}
+    \raggedright\noindent\textbf{\MakeUppercase{\namesize\@name}}\par
   \endgroup
   \par
   \nameskip
@@ -68,10 +66,16 @@
 
 \AtBeginDocument{                     % Begin document
   \printname                        % Print the name specified with \name
-  \@ifundefined{@addressone}{}{     % Print the first address if specified
-    \printaddress{\@addressone}}
-  \@ifundefined{@addresstwo}{}{     % Print the second address if specified
-    \printaddress{\@addresstwo}}
+  \begingroup
+    \raggedright\noindent%
+    \@ifundefined{@addressone}{}{%
+      \printaddress{\@addressone}%
+      \@ifundefined{@addresstwo}{}{\\}}
+    \@ifundefined{@addresstwo}{}{%
+      \printaddress{\@addresstwo}}
+    \par
+  \endgroup
+  \addressskip
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
