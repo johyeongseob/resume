@@ -1,0 +1,36 @@
+# LaTeX intermediate and build files
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex
+*.synctex.gz
+*.synctex(busy)
+*.synctex.gz(busy)
+*.out
+*.toc
+*.lof
+*.lot
+*.blg
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.dvi
+*.ind
+*.idx
+*.ilg
+
+# Editor temporary files
+*.swp
+*.swo
+*~
+
+# Operating system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Keep final PDFs and LaTeX source files under version control.
